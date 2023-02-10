@@ -1,0 +1,25 @@
+name: Whatever1
+on: [push]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Login to Azure US Gov Cloud with CLI
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
+        environment: 'AzureUSGovernment'
+        enable-AzPSSession: false
+
+    - name: Login to Azure US Gov Cloud with Az Powershell
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
+        environment: 'AzureUSGovernment'
+        enable-AzPSSession: true
