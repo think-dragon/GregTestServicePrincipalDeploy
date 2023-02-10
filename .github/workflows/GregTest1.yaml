@@ -13,13 +13,13 @@ jobs:
     - name: Login to Azure US Gov Cloud with CLI
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
+        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
         environment: 'AzureUSGovernment'
         enable-AzPSSession: false
 
     - name: Login to Azure US Gov Cloud with Az Powershell
       uses: azure/login@v1
       with:
-        creds: ${{ secrets.AZURE_US_GOV_CREDENTIALS }}
+        creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
         environment: 'AzureUSGovernment'
         enable-AzPSSession: true
